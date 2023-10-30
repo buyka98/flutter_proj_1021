@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       routes: {
-        '/': (context) => NavigationTest(),
+        '/': (context) => HomeScreen(),
         '/list_view_test': (context) => ListViewTest(),
       },
       theme: ThemeData(
