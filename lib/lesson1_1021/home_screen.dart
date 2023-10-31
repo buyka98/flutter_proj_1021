@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -138,7 +141,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   // Best Sellers bottom
                   SizedBox(height: 30),
-                  Image.asset("assets/images/home_img_1.png")
+                  InkWell(
+                      onTap: () async {
+                        CollectionReference users = FirebaseFirestore.instance.collection("notes");
+                        users.add({
+                          "name": "my name",
+                          "age": 20,
+                        }).then((value) => print("value $value"));
+                      },
+                      child: Image.asset("assets/images/home_img_1.png"))
                 ],
               ),
               Container(
